@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIP CONECTA - Certificación Profesional 2026 | Agente de Viajes Certificado</title>
+    <meta name="description" content="Certifícate como agente de viajes profesional. Curso con certificación Amadeus oficial. Inicio 06 de Abril 2026.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        secondary: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+        /* Gradientes suaves de fondo */
+        .gradient-bg {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(74, 222, 128, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(34, 211, 238, 0.04) 0%, transparent 50%);
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
+
+        /* Interactive Grid Pattern */
+        .interactive-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .grid-square {
+            fill: transparent;
+            stroke: rgba(16, 185, 129, 0.1);
+            stroke-width: 1;
+            transition: all 0.3s ease;
+        }
+
+        .grid-square:hover {
+            fill: rgba(16, 185, 129, 0.15);
+            stroke: rgba(16, 185, 129, 0.3);
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cards con sombra suave */
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: #4ade80;
+        }
+
+        /* Botón primario con gradiente del logo */
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #22c55e 0%, #22d3ee 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Botón secundario */
+        .btn-secondary {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            color: #374151;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #10b981;
+            color: #10b981;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Botón WhatsApp */
+        .btn-whatsapp {
+            background: #10b981;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Video container */
+        .video-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e5e7eb;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, #10b981, #06b6d4, #10b981);
+            border-radius: 26px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: borderRotate 6s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .faq-trigger {
+            transition: color 0.3s;
+            color: #1f2937;
+        }
+
+        .faq-trigger:hover {
+            color: #10b981;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s;
+        }
+
+        .faq-item.open .faq-content {
+            max-height: 500px;
+            padding-bottom: 24px;
+        }
+
+        .faq-item.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .chevron {
+            transition: transform 0.3s ease;
+            color: #10b981;
+        }
+
+        /* Urgency badge */
+        .urgency-pulse {
+            animation: urgencyPulse 2s infinite;
+        }
+
+        @keyframes urgencyPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid #e5e7eb;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 50;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        /* Countdown */
+        .countdown-item {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 12px;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .countdown-item .number {
+            color: #10b981;
+            font-weight: 900;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        /* Text gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+
+        /* Sección de transformación */
+        .transformation-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+            border-top: 1px solid #bbf7d0;
+            border-bottom: 1px solid #a5f3fc;
+        }
+
+        .transformation-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transformation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #06b6d4);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .transformation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+            border-color: #10b981;
+        }
+
+        .transformation-card:hover::before {
+            opacity: 1;
+        }
+
+        .transformation-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid #bbf7d0;
+            color: #10b981;
+        }
+
+        .path-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .path-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #10b981 0%, #06b6d4 100%);
+            opacity: 0.3;
+        }
+
+        .path-item {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .path-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px #10b981;
+        }
+
+        .path-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .opportunity-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Logo clean */
+        .logo-clean {
+            filter: none !important;
+            opacity: 1 !important;
+            mix-blend-mode: normal !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Backgrounds -->
+    <div class="gradient-bg"></div>
+    <svg class="interactive-grid" id="interactiveGrid"></svg>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img src="trip conecta (2).png" 
+                         alt="Trip Conecta" 
+                         class="h-12 w-auto object-contain logo-clean">
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#programa" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Programa</a>
+                    <a href="#transformacion" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Transformación</a>
+                    <a href="#inventario" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Respaldo</a>
+                    <a href="#faq" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">FAQ</a>
+                </div>
+                <button onclick="openModal()" class="btn-primary text-sm">
+                    <span>Agendar Llamada</span>
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section con VSL -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                
+                <!-- Contenido -->
+                <div class="reveal space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 border border-primary-200 text-primary-700 text-xs font-bold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></span>
+                        Certificación Oficial 2026
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-black leading-tight tracking-tight text-gray-900">
+                        Conviértete en <span class="text-gradient">Agente de Viajes</span> Profesional
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                        Certificación oficial Amadeus + Acceso a inventario exclusivo. 
+                        Adquiere una profesión de alta demanda y la oportunidad de generar comisiones por venta de viajes. 
+                    </p>
+
+                    <!-- Countdown -->
+                    <div class="glass-card p-6 rounded-2xl inline-block">
+                        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Próximo grupo inicia en:</p>
+                        <div class="flex gap-3" id="countdown">
+                            <div class="countdown-item">
+                                <div class="text-2xl number" id="days">00</div>
+                                <div class="text-[10px] text-gray-500 uppercase">Días</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="text-2xl number" id="hours">00</div>
+                                <div class="text-[10px] text-gray-500 uppercase">Horas</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="text-2xl number" id="minutes">00</div>
+                                <div class="text-[10px] text-gray-500 uppercase">Mins</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="text-2xl number" id="seconds">00</div>
+                                <div class="text-[10px] text-gray-500 uppercase">Segs</div>
+                            </div>
+                        </div>
+                        <p class="text-sm font-bold text-primary-600 mt-3">06 de Abril de 2026</p>
+                    </div>
+
+                    <!-- CTAs Principales -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="openModal()" class="btn-primary group">
+                            <span>Quiero Empezar Ahora</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <a href="https://wa.me/59896343581" target="_blank" class="btn-whatsapp">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span>Consultar por WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-6 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-primary-500"></i>
+                            <span>Sin experiencia previa</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-primary-500"></i>
+                            <span>100% Online</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VSL Video -->
+                <div class="reveal lg:pl-8">
+                    <div class="video-container bg-black">
+                        <video 
+                            controls
+                            poster="https://tripleconecta.com/wp-content/uploads/2026/02/mama-y-su-hija-trabajo-desde-casa.jpg"
+                            class="w-full aspect-video object-cover"
+                            preload="metadata">
+                            <source src="https://tripleconecta.com/wp-content/uploads/2026/02/VSL-TRIP-CONECTA.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </div>
+                    
+                    <!-- Badge flotante -->
+                    <div class="glass-card absolute -bottom-6 -left-6 p-4 rounded-2xl flex items-center gap-4 max-w-xs hidden lg:flex">
+                        <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                            <i data-lucide="play" class="w-6 h-6 text-primary-600"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">Mira el video</p>
+                            <p class="text-sm font-bold text-gray-900">Descubre cómo funciona</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points / Objections -->
+    <section class="py-20 relative bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-black mb-4 text-gray-900">¿Te detienen estas dudas?</h2>
+                <p class="text-gray-600">Eliminamos los obstáculos para tu nueva carrera</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-8 rounded-3xl reveal group cursor-pointer" style="transition-delay: 0ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="alert-circle" class="w-7 h-7 text-red-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">"No tengo experiencia"</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Diseñado desde cero. Nuestra metodología paso a paso garantiza que aprendas Amadeus sin conocimientos previos.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl reveal group cursor-pointer" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="clock" class="w-7 h-7 text-orange-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">"No tengo tiempo"</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Modalidad 100% flexible. Acceso 24/7 para que estudies a tu ritmo sin sacrificar tus actuales compromisos.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl reveal group cursor-pointer" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-yellow-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="help-circle" class="w-7 h-7 text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">"¿Y si no consigo clientes?"</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Te damos acceso a nuestro inventario de paquetes listos para vender. Marketing digital incluido para atraer tu primer cliente.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl reveal group cursor-pointer" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-green-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">"¿Es confiable?"</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">20 años de trayectoria. Empresa registrada en Montevideo con oficinas físicas. Respaldo legal real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: TU TRANSFORMACIÓN -->
+    <section id="transformacion" class="py-24 transformation-section relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <div class="opportunity-tag mb-6 mx-auto w-fit">
+                    <i data-lucide="trending-up" class="w-4 h-4"></i>
+                    Tu Evolución Profesional
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black mb-6 text-gray-900">De donde estás, a donde podés llegar</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Esta certificación abre puertas. No te garantizamos un sueldo específico ni un puesto mágico, 
+                    pero te damos las herramientas concretas para construir tu propio camino en la industria.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Timeline de Transformación -->
+                <div class="reveal">
+                    <div class="glass-card rounded-3xl p-8 md:p-10">
+                        <h3 class="text-2xl font-bold mb-8 flex items-center gap-3 text-gray-900">
+                            <i data-lucide="route" class="w-8 h-8 text-primary-500"></i>
+                            Tu camino posible
+                        </h3>
+                        
+                        <div class="path-timeline">
+                            <div class="path-item">
+                                <h4 class="font-bold text-lg mb-2 text-gray-700">Antes del curso</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Sin certificación reconocida, sin acceso a sistemas profesionales, 
+                                    sin conocimiento técnico de la industria.
+                                </p>
+                            </div>
+                            
+                            <div class="path-item">
+                                <h4 class="font-bold text-lg mb-2 text-primary-600">Durante la formación</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Dominás Amadeus, aprendés a cotizar, reservar y emitir. 
+                                    Desarrollás habilidades de venta digital. Construís tu perfil profesional.
+                                </p>
+                            </div>
+                            
+                            <div class="path-item">
+                                <h4 class="font-bold text-lg mb-2 text-secondary-600">Después de certificarte</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Podés postularte a agencias de viajes que buscan agentes certificados, 
+                                    o comenzar a generar comisiones vendiendo nuestro inventario mayorista.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oportunidades concretas -->
+                <div class="space-y-6 reveal" style="transition-delay: 150ms;">
+                    <div class="transformation-card">
+                        <div class="transformation-icon">
+                            <i data-lucide="briefcase" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-900">Acceso al mercado laboral</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Las agencias de viajes buscan activamente agentes con certificación Amadeus. 
+                            Tu credencial te diferencia de otros candidatos y acredita que podés operar desde el día uno.
+                        </p>
+                        <div class="flex items-center gap-2 text-primary-600 text-sm font-semibold">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i>
+                            <span>Mayor empleabilidad en turismo</span>
+                        </div>
+                    </div>
+
+                    <div class="transformation-card">
+                        <div class="transformation-icon">
+                            <i data-lucide="shopping-bag" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-900">Ventas con respaldo</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Accedés a nuestro inventario mayorista de paquetes armados. 
+                            Vos enfocás en conseguir clientes, nosotros operamos los viajes. 
+                            Generás comisiones sin invertir en stock ni asumir riesgos operativos.
+                        </p>
+                        <div class="flex items-center gap-2 text-primary-600 text-sm font-semibold">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i>
+                            <span>Inventario listo para vender</span>
+                        </div>
+                    </div>
+
+                    <div class="transformation-card">
+                        <div class="transformation-icon">
+                            <i data-lucide="globe" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-900">Profesión sin fronteras</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            La certificación Amadeus es válida globalmente. 
+                            Podés trabajar para agencias de cualquier país, o atender clientes internacionales 
+                            desde donde estés.
+                        </p>
+                        <div class="flex items-center gap-2 text-primary-600 text-sm font-semibold">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i>
+                            <span>Trabajo remoto posible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Realista -->
+            <div class="mt-12 max-w-3xl mx-auto reveal">
+                <div class="glass-card rounded-2xl p-8 text-center border-2 border-primary-200 bg-primary-50/50">
+                    <div class="flex items-center justify-center gap-2 mb-4 text-primary-600">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                        <span class="font-bold uppercase tracking-wider text-sm">Inversión que se amortigua</span>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        Con solo <strong class="text-gray-900">2 o 3 ventas</strong> de nuestros paquetes estándar, 
+                        recuperás lo invertido en el curso. Después, cada comisión es ganancia neta para vos.
+                        <br><br>
+                        <span class="text-primary-600 font-semibold">Tu esfuerzo determina tu techo.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programa -->
+    <section id="programa" class="py-24 relative bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <span class="text-primary-600 text-sm font-bold uppercase tracking-widest">Currículo Profesional</span>
+                <h2 class="text-3xl md:text-5xl font-black mt-4 mb-6 text-gray-900">Tres Pilares para tu Éxito</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Formación integral que combina técnica, ventas y marketing.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Módulo 1 -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group reveal">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-full blur-3xl group-hover:bg-primary-200 transition-all"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-2xl bg-primary-100 border border-primary-200 flex items-center justify-center mb-6">
+                            <i data-lucide="plane" class="w-8 h-8 text-primary-600"></i>
+                        </div>
+                        <div class="text-xs font-bold text-primary-600 uppercase tracking-widest mb-2">Módulo 1</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Dominio Amadeus</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Certificación oficial en el sistema GDS más utilizado mundialmente. 
+                            Reservas, emisiones, cambios y cancelaciones.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
+                                Certificación oficial incluida
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
+                                Práctica en sistema real
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
+                                Válido internacionalmente
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Módulo 2 -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group reveal" style="transition-delay: 150ms;">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-secondary-100 rounded-full blur-3xl group-hover:bg-secondary-200 transition-all"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-2xl bg-secondary-100 border border-secondary-200 flex items-center justify-center mb-6">
+                            <i data-lucide="smartphone" class="w-8 h-8 text-secondary-600"></i>
+                        </div>
+                        <div class="text-xs font-bold text-secondary-600 uppercase tracking-widest mb-2">Módulo 2</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Ventas Digitales</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Ventas por redes sociales y WhatsApp Business. Psicología del consumidor y 
+                            técnicas de persuasión para cerrar más ventas.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-secondary-500"></i>
+                                Ventas por Instagram y Facebook
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-secondary-500"></i>
+                                WhatsApp Business profesional
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-secondary-500"></i>
+                                Psicología de ventas aplicada
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-secondary-500"></i>
+                                Scripts y objeciones
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Módulo 3 -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group reveal" style="transition-delay: 300ms;">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-full blur-3xl group-hover:bg-purple-200 transition-all"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-2xl bg-purple-100 border border-purple-200 flex items-center justify-center mb-6">
+                            <i data-lucide="target" class="w-8 h-8 text-purple-600"></i>
+                        </div>
+                        <div class="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">Módulo 3</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Marketing y Leads</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Captación de leads, difusión de productos en redes propias y 
+                            gestión profesional con herramientas CRM.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-purple-500"></i>
+                                Embudos de captación de leads
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-purple-500"></i>
+                                Difusión estratégica en redes
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-purple-500"></i>
+                                Manejo de CRM profesional
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-purple-500"></i>
+                                Automatización de procesos
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Respaldo Operativo -->
+    <section id="inventario" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal order-2 lg:order-1">
+                    <img src="https://tripleconecta.com/wp-content/uploads/2026/02/mujer-50-trabajo-de-casa.jpg" 
+                         alt="Trabajo profesional" 
+                         class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
+                </div>
+                
+                <div class="reveal order-1 lg:order-2 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-bold uppercase tracking-wider">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                        Ventaja Competitiva
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-5xl font-black leading-tight text-gray-900">
+                        No solo aprendes: <br>
+                        <span class="text-gradient">Tenes la oportunidad de empezar a vender.</span>
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Al graduarte, podes acceder a nuestro inventario mayorista exclusivo. 
+                        Vos traes el cliente, nosotros operamos todo. Comisión asegurada.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="package" class="w-6 h-6 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1 text-gray-900">Paquetes Listos para Vender</h4>
+                                <p class="text-gray-600 text-sm">Itinerarios armados, precios competitivos y comisiones claras.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="building-2" class="w-6 h-6 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1 text-gray-900">Respaldo Legal Real</h4>
+                                <p class="text-gray-600 text-sm">Operamos bajo SAAS registrada en Uruguay. Facturación y soporte legal incluidos.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="headphones" class="w-6 h-6 text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1 text-gray-900">Soporte Operativo 24/7</h4>
+                                <p class="text-gray-600 text-sm">Te ayudamos con emisiones complejas, cambios y emergencias de tus clientes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal()" class="btn-primary mt-4">
+                        <span>Quiero este respaldo</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inversión -->
+    <section id="inscripcion" class="py-24 relative overflow-hidden bg-white">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary-50/50 to-transparent"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="glass-card rounded-[40px] p-8 md:p-16 text-center border-2 border-primary-200 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs font-bold uppercase tracking-wider mb-6 urgency-pulse">
+                    <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                    Cupos Limitados - Grupo 06 Abril
+                </div>
+
+                <h2 class="text-3xl md:text-5xl font-black mb-6 text-gray-900">Inversión en tu Futuro</h2>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-500 mb-2">Inicio</p>
+                        <p class="text-2xl font-black text-gray-900">06 Abril 2026</p>
+                    </div>
+                    <div class="hidden md:block w-px h-12 bg-gray-200"></div>
+                    <div class="text-center">
+                        <p class="text-sm text-gray-500 mb-2">Modalidad</p>
+                        <p class="text-2xl font-black text-gray-900">100% Online</p>
+                    </div>
+                    <div class="hidden md:block w-px h-12 bg-gray-200"></div>
+                    <div class="text-center">
+                        <p class="text-sm text-gray-500 mb-2">Certificación</p>
+                        <p class="text-2xl font-black text-gray-900">Amadeus Oficial</p>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <p class="text-sm text-gray-500 mb-2">Inversión única</p>
+                    <div class="flex items-baseline justify-center gap-2">
+                        <span class="text-5xl md:text-7xl font-black text-gradient">Pago Único</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">Acceso de por vida al contenido + Actualizaciones</p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
+                    <button onclick="openModal()" class="btn-primary flex-1 justify-center">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        <span>Agendar Llamada</span>
+                    </button>
+                    <a href="https://tripleconecta.com/pagar" class="btn-secondary flex-1 justify-center">
+                        <i data-lucide="credit-card" class="w-5 h-5"></i>
+                        <span>Quiero comprar el curso ahora</span>
+                    </a>
+                </div>
+
+                <div class="mt-8 flex justify-center gap-6 text-gray-400">
+                    <div class="flex items-center gap-2 text-xs font-medium">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Pago Seguro</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-medium">
+                        <i data-lucide="refresh-ccw" class="w-4 h-4"></i>
+                        <span>Garantía 7 días</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-black mb-4 text-gray-900">Preguntas Frecuentes</h2>
+                <p class="text-gray-600">Todo lo que necesitas saber antes de empezar</p>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <div class="faq-item glass-card rounded-2xl px-6 bg-white">
+                    <button class="faq-trigger w-full py-6 flex justify-between items-center text-left font-bold" onclick="toggleFaq(this)">
+                        <span>¿Necesito experiencia previa en turismo?</span>
+                        <i data-lucide="chevron-down" class="chevron w-5 h-5"></i>
+                    </button>
+                    <div class="faq-content text-gray-600 pb-6">
+                        No. El curso está diseñado desde cero para personas sin experiencia. Nuestra metodología paso a paso te lleva desde lo básico hasta la operativa profesional completa.
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card rounded-2xl px-6 bg-white">
+                    <button class="faq-trigger w-full py-6 flex justify-between items-center text-left font-bold" onclick="toggleFaq(this)">
+                        <span>¿Cuándo empieza exactamente el curso?</span>
+                        <i data-lucide="chevron-down" class="chevron w-5 h-5"></i>
+                    </button>
+                    <div class="faq-content text-gray-600 pb-6">
+                        El próximo grupo inicia el <strong>06 de Abril de 2026</strong>. Al inscribirte recibes acceso inmediato a materiales preparatorios y el 06 de abril abrimos el acceso completo al campus virtual.
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card rounded-2xl px-6 bg-white">
+                    <button class="faq-trigger w-full py-6 flex justify-between items-center text-left font-bold" onclick="toggleFaq(this)">
+                        <span>¿Qué incluye exactamente la certificación?</span>
+                        <i data-lucide="chevron-down" class="chevron w-5 h-5"></i>
+                    </button>
+                    <div class="faq-content text-gray-600 pb-6">
+                        Recibes dos certificaciones: 1) Certificación oficial de Amadeus (válida internacionalmente) y 2) Certificado de Trip Conecta que acredita tu formación integral en ventas y marketing turístico.
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card rounded-2xl px-6 bg-white">
+                    <button class="faq-trigger w-full py-6 flex justify-between items-center text-left font-bold" onclick="toggleFaq(this)">
+                        <span>¿Cómo funciona el sistema de comisiones después del curso?</span>
+                        <i data-lucide="chevron-down" class="chevron w-5 h-5"></i>
+                    </button>
+                    <div class="faq-content text-gray-600 pb-6">
+                        Como graduado certificado, accedes a nuestro inventario mayorista. Vendes los paquetes a tus clientes, nosotros operamos todo el viaje y tú recibes tu comisión directamente. Es un sistema win-win: tú no inviertes en stock, nosotros respaldamos la operación.
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card rounded-2xl px-6 bg-white">
+                    <button class="faq-trigger w-full py-6 flex justify-between items-center text-left font-bold" onclick="toggleFaq(this)">
+                        <span>¿Hay límite de edad o ubicación geográfica?</span>
+                        <i data-lucide="chevron-down" class="chevron w-5 h-5"></i>
+                    </button>
+                    <div class="faq-content text-gray-600 pb-6">
+                        No hay límite de edad (tenemos alumnos de 18 a 65 años) y al ser 100% online, puedes tomarlo desde cualquier país. La certificación Amadeus es válida globalmente y nuestro sistema de comisiones funciona para residentes en toda Latinoamérica.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="trip conecta (2).png" 
+                         alt="Trip Conecta" 
+                         class="h-10 w-auto">
+                </div>
+                
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-primary-600 transition-colors">Términos</a>
+                    <a href="#" class="hover:text-primary-600 transition-colors">Privacidad</a>
+                    <a href="https://wa.me/59896343581" class="hover:text-primary-600 transition-colors">Contacto</a>
+                </div>
+
+                <p class="text-xs text-gray-400 font-medium">
+                    © 2026 Trip Conecta SAAS. Montevideo, Uruguay.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta md:hidden p-4" id="stickyCta">
+        <div class="flex gap-3">
+            <a href="https://wa.me/59896343581" class="btn-whatsapp flex-1 py-3 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                WhatsApp
+            </a>
+            <button onclick="openModal()" class="btn-primary flex-1 py-3 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                Agendar
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal de Opciones -->
+    <div class="modal-overlay" id="ctaModal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="rocket" class="w-8 h-8 text-primary-600"></i>
+                </div>
+                <h3 class="text-2xl font-black mb-2 text-gray-900">¿Cómo prefieres continuar?</h3>
+                <p class="text-gray-500 text-sm">Elige la opción que mejor se adapte a ti</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Opción 1: Pagar directo -->
+                <a href="https://tripleconecta.com/pagar" class="block p-6 rounded-2xl bg-gradient-to-r from-primary-50 to-secondary-50 border border-primary-200 hover:border-primary-400 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-primary-500 flex items-center justify-center">
+                            <i data-lucide="credit-card" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h4 class="font-bold text-lg text-gray-900 group-hover:text-primary-600 transition-colors">Quiero pagar ahora</h4>
+                            <p class="text-sm text-gray-500">Asegura tu lugar inmediatamente</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-primary-500"></i>
+                    </div>
+                </a>
+
+                <!-- Opción 2: Agendar llamada -->
+                <a href="https://calendly.com/inscripciones-tripleconecta/30min" target="_blank" class="block p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:border-secondary-400 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-secondary-100 flex items-center justify-center">
+                            <i data-lucide="calendar" class="w-6 h-6 text-secondary-600"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h4 class="font-bold text-lg text-gray-900 group-hover:text-secondary-600 transition-colors">Agendar llamada</h4>
+                            <p class="text-sm text-gray-500">Conversemos 15 min sin compromiso</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400"></i>
+                    </div>
+                </a>
+
+                <!-- Opción 3: WhatsApp -->
+                <a href="https://wa.me/59896343581" target="_blank" class="block p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:border-green-400 transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                            <i data-lucide="message-circle" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h4 class="font-bold text-lg text-gray-900 group-hover:text-green-600 transition-colors">Preguntar por WhatsApp</h4>
+                            <p class="text-sm text-gray-500">Respuesta inmediata a tus dudas</p>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400"></i>
+                    </div>
+                </a>
+            </div>
+
+            <button onclick="closeModal()" class="mt-6 w-full py-3 rounded-xl text-gray-400 hover:text-gray-600 text-sm font-medium transition-colors">
+                Cancelar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Inicializar íconos
+        lucide.createIcons();
+
+        // Crear grid interactivo
+        function createInteractiveGrid() {
+            const svg = document.getElementById('interactiveGrid');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const squareSize = 40;
+            const cols = Math.ceil(width / squareSize);
+            const rows = Math.ceil(height / squareSize);
+
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            svg.innerHTML = '';
+
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    rect.setAttribute('x', col * squareSize);
+                    rect.setAttribute('y', row * squareSize);
+                    rect.setAttribute('width', squareSize - 1);
+                    rect.setAttribute('height', squareSize - 1);
+                    rect.classList.add('grid-square');
+                    svg.appendChild(rect);
+                }
+            }
+        }
+
+        createInteractiveGrid();
+        window.addEventListener('resize', createInteractiveGrid);
+
+        // Scroll Reveal
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+
+            // Sticky CTA mobile
+            const stickyCta = document.getElementById('stickyCta');
+            if (window.scrollY > 500) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+
+        // FAQ Accordion
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isOpen = item.classList.contains('open');
+            
+            // Cerrar todos
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('open');
+            });
+            
+            // Abrir el clickeado si estaba cerrado
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        }
+
+        // Modal
+        function openModal() {
+            document.getElementById('ctaModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'ctaModal' || event.target.tagName === 'BUTTON') {
+                document.getElementById('ctaModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Countdown
+        function updateCountdown() {
+            const startDate = new Date('2026-04-06T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = startDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Smooth scroll para anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar Curso - TRIP CONECTA | Certificación Profesional 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        secondary: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: #ffffff; 
+            color: #1f2937; 
+            overflow-x: hidden; 
+        }
+        
+        .gradient-bg {
+            background: radial-gradient(circle at 20% 50%, rgba(74, 222, 128, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+            position: fixed; inset: 0; z-index: -1;
+        }
+
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 0.8s ease; 
+        }
+        .reveal.active { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+            border-color: #4ade80;
+        }
+
+        .payment-card {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-card.featured {
+            border-color: #10b981;
+            box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.15);
+        }
+
+        .payment-card.featured::after {
+            content: 'PROMO ESPECIAL';
+            position: absolute;
+            top: 12px;
+            right: -35px;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            color: white;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 4px 40px;
+            transform: rotate(45deg);
+            letter-spacing: 1px;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            padding: 1rem 2rem; 
+            border-radius: 1rem; 
+            font-weight: 700; 
+            color: white;
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 0.5rem; 
+            transition: all 0.3s ease; 
+            border: none; 
+            cursor: pointer;
+            width: 100%; 
+            font-size: 1.1rem;
+        }
+
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.4); 
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            color: #374151;
+            padding: 1rem 2rem; 
+            border-radius: 1rem; 
+            font-weight: 700;
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 0.5rem; 
+            transition: all 0.3s ease; 
+            width: 100%; 
+            font-size: 1.1rem;
+        }
+
+        .btn-secondary:hover { 
+            border-color: #10b981;
+            color: #10b981;
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            padding: 0.875rem 1.5rem; 
+            border-radius: 1rem; 
+            font-weight: 600; 
+            color: white;
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem;
+            transition: all 0.3s ease; 
+            font-size: 0.95rem;
+        }
+
+        .btn-whatsapp:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 15px 30px -10px rgba(34, 197, 94, 0.4); 
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mercado-pago-badge {
+            background: linear-gradient(135deg, #00b1ea 0%, #0091d4 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .installment-badge {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .urgency-pulse { 
+            animation: urgencyPulse 2s infinite; 
+        }
+
+        @keyframes urgencyPulse { 
+            0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); } 
+            50% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); } 
+        }
+
+        .module-week {
+            background: #f9fafb;
+            border-left: 3px solid #10b981;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .module-week:hover { 
+            background: #f0fdf4; 
+            border-left-width: 5px; 
+        }
+
+        .logo-container {
+            background: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img { 
+            height: 32px !important; 
+            width: auto; 
+            object-fit: contain; 
+            display: block; 
+        }
+
+        @media (min-width: 768px) { 
+            .logo-img { height: 40px !important; } 
+        }
+
+        .sticky-help {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float { 
+            0%, 100% { transform: translateY(0); } 
+            50% { transform: translateY(-10px); } 
+        }
+
+        .countdown-small {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #9ca3af;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .price-new {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .promo-badge {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 20px -5px rgba(220, 38, 38, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .promo-banner {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Nueva sección de transformación */
+        .transformation-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+            border: 2px solid #86efac;
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .transformation-header {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+            margin-top: 2rem;
+        }
+
+        .transformation-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .transformation-item:hover {
+            transform: translateY(-5px);
+            border-color: #10b981;
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+        }
+
+        .transformation-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            border: 1px solid #86efac;
+        }
+
+        .roi-highlight {
+            background: #ffffff;
+            border: 2px solid #fcd34d;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .roi-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .arrow-down {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .arrow-down i {
+            color: #10b981;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gradient-bg"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="logo-container">
+                    <img src="trip conecta (2).png" 
+                         alt="Trip Conecta" class="logo-img">
+                </a>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-500 hidden sm:inline">¡Promoción especial!</span>
+                    <div class="countdown-small">
+                        <i data-lucide="clock" class="w-4 h-4 text-red-500"></i>
+                        <span class="text-sm font-bold text-red-500">Hasta el 31 de marzo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Pagos -->
+    <section class="pt-32 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <div class="promo-badge mb-6">
+                    <i data-lucide="flame" class="w-4 h-4"></i>
+                    PROMO ESPECIAL - SOLO 20 CUPOS
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
+                    Asegura tu lugar en el <br>
+                    <span class="text-gradient">Grupo 06 de Abril</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                    Aprovecha el precio promocional válido solo hasta el <strong class="text-gray-900">31 de marzo</strong>. 
+                    Después vuelve al precio regular.
+                </p>
+
+                <div class="promo-banner inline-block max-w-2xl mx-auto">
+                    <div class="flex items-center justify-center gap-3 text-primary-700 font-bold">
+                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                        <span>Solo quedan <span id="spotsLeft" class="text-primary-600 text-xl">12</span> cupos de 20 disponibles</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="mercado-pago-badge">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                        Mercado Pago
+                    </div>
+                    <div class="installment-badge">
+                        <i data-lucide="credit-card" class="w-4 h-4"></i>
+                        12 cuotas sin recargo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TRANSFORMACIÓN -->
+    <section class="py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="transformation-box reveal">
+                <div class="transformation-header">
+                    <i data-lucide="sparkles" class="w-8 h-8 inline-block mb-2"></i><br>
+                    LA TRANSFORMACIÓN
+                </div>
+                
+                <p class="text-center text-lg text-gray-600 mb-8 relative z-10 max-w-3xl mx-auto leading-relaxed">
+                    Después de terminar este curso vas a comenzar a <strong class="text-gray-900">ganar comisiones vendiendo viajes</strong>, 
+                    ya sea contratado en una agencia de viajes o vendiendo nuestro inventario mayorista. 
+                    Esta inversión se paga sola.
+                </p>
+
+                <div class="transformation-grid">
+                    <div class="transformation-item">
+                        <div class="transformation-icon">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-primary-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Empleo Inmediato</h3>
+                        <p class="text-sm text-gray-600">Accede a ofertas laborales en agencias de todo el mundo que buscan agentes certificados en Amadeus</p>
+                    </div>
+
+                    <div class="transformation-item">
+                        <div class="transformation-icon">
+                            <i data-lucide="trending-up" class="w-8 h-8 text-secondary-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Ingresos Propios</h3>
+                        <p class="text-sm text-gray-600">Vende nuestro inventario mayorista y gana comisiones desde el primer mes operando</p>
+                    </div>
+
+                    <div class="transformation-item">
+                        <div class="transformation-icon">
+                            <i data-lucide="globe" class="w-8 h-8 text-purple-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Libertad Total</h3>
+                        <p class="text-sm text-gray-600">Trabaja desde cualquier lugar del mundo con una profesión global y demandada</p>
+                    </div>
+
+                    <div class="transformation-item">
+                        <div class="transformation-icon">
+                            <i data-lucide="badge-dollar-sign" class="w-8 h-8 text-yellow-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-900">Sin Techo</h3>
+                        <p class="text-sm text-gray-600">Tus ingresos dependen de tu esfuerzo.</p>
+                    </div>
+                </div>
+
+                <div class="roi-highlight">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <i data-lucide="calculator" class="w-5 h-5 text-primary-600"></i>
+                        <span class="text-sm font-bold text-primary-600 uppercase tracking-wider">Retorno de Inversión</span>
+                    </div>
+                    <div class="roi-number">2-3 ventas</div>
+                    <p class="text-gray-600 mt-2">Es todo lo que necesitas para recuperar tu inversión del curso.<br>
+                    <span class="text-gray-900 font-semibold">Después, todo es ganancia neta.</span></p>
+                </div>
+
+                <div class="arrow-down">
+                    <i data-lucide="arrow-down" class="w-10 h-10"></i>
+                </div>
+
+                <div class="text-center relative z-10">
+                    <p class="text-primary-600 font-bold text-lg flex items-center justify-center gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                        Tu futuro como agente de viajes profesional comienza aquí
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opciones de Pago -->
+    <section class="py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                
+                <!-- Opción 1: Pago Completo -->
+                <div class="payment-card featured reveal">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center">
+                                <i data-lucide="percent" class="w-7 h-7 text-primary-600"></i>
+                            </div>
+                            <div class="text-right">
+                                <div class="price-old">$22.000</div>
+                                <div class="price-new">$12.700</div>
+                                <div class="text-sm text-gray-500 mt-1">Pesos Uruguayos ($UYU)</div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-3 text-gray-900">Pago Único Promocional</h3>
+                        <p class="text-gray-600 mb-6">Ahorra $9.300 pagando ahora. Acceso inmediato a todos los materiales. Válido solo para los primeros 20 inscriptos.</p>
+                        
+                        <ul class="space-y-3 mb-8 text-sm text-gray-700">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-primary-500 flex-shrink-0"></i>
+                                <span><strong class="text-gray-900">42% de descuento</strong> por tiempo limitado</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-primary-500 flex-shrink-0"></i>
+                                <span>Acceso completo inmediato</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-primary-500 flex-shrink-0"></i>
+                                <span>Certificación Amadeus incluida</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-primary-500 flex-shrink-0"></i>
+                                <span>Acceso de por vida + actualizaciones</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-primary-500 flex-shrink-0"></i>
+                                <span>Inventario mayorista exclusivo</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" class="btn-primary urgency-pulse">
+                            <span>Pagar $12.700 Ahora</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        
+                        <p class="text-center text-xs text-gray-500 mt-4">
+                            <i data-lucide="shield" class="w-3 h-3 inline mr-1"></i>
+                            Pago seguro procesado por Mercado Pago
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Opción 2: Reservar Cupo -->
+                <div class="payment-card reveal" style="transition-delay: 150ms;">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-secondary-100 flex items-center justify-center">
+                                <i data-lucide="bookmark" class="w-7 h-7 text-secondary-600"></i>
+                            </div>
+                            <div class="text-right">
+                                <div class="price-old">$11.000</div>
+                                <div class="text-3xl font-black text-gradient">$6.350</div>
+                                <p class="text-xs text-gray-500">50% para reservar</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-3 text-gray-900">Reservar mi Cupo</h3>
+                        <p class="text-gray-600 mb-6">Separa tu lugar pagando la mitad del precio promocional. El resto ($6.350) lo pagas antes del 06 de abril.</p>
+                        
+                        <ul class="space-y-3 mb-8 text-sm text-gray-700">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-secondary-500 flex-shrink-0"></i>
+                                <span>Aseguras tu lugar inmediatamente</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-secondary-500 flex-shrink-0"></i>
+                                <span>El saldo lo pagas hasta el 06/04</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-secondary-500 flex-shrink-0"></i>
+                                <span>Mismo acceso completo al curso</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-secondary-500 flex-shrink-0"></i>
+                                <span>Posibilidad de financiar el resto</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" class="btn-secondary">
+                            <span>Reservar con $6.350</span>
+                            <i data-lucide="bookmark" class="w-5 h-5"></i>
+                        </a>
+                        
+                        <p class="text-center text-xs text-gray-500 mt-4">
+                            Saldo restante: $6.350 antes del 06/04/2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="glass-card rounded-2xl p-6 reveal">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-700">Pago Seguro</span>
+                        <span class="text-[10px] text-gray-500">SSL Encriptado</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="refresh-cw" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-700">Garantía 7 días</span>
+                        <span class="text-[10px] text-gray-500">Devolución sin preguntas</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                            <i data-lucide="clock" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-700">Acceso Inmediato</span>
+                        <span class="text-[10px] text-gray-500">Después del pago</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
+                            <i data-lucide="award" class="w-6 h-6 text-yellow-600"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-700">Certificación</span>
+                        <span class="text-[10px] text-gray-500">Amadeus Oficial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Qué incluye? -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-black mb-4 text-gray-900">¿Qué incluye tu inscripción?</h2>
+                <p class="text-gray-600">Todo lo que necesitas para convertirte en agente profesional</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-8 reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-primary-100 flex items-center justify-center mb-6">
+                        <i data-lucide="video" class="w-7 h-7 text-primary-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">4 Clases Semanales</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Contenido grabado en video y material escrito descargable. Avanza a tu ritmo con acceso 24/7.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-6">
+                        <i data-lucide="message-circle" class="w-7 h-7 text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Grupo de WhatsApp</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Comunidad exclusiva para dudas diarias. Soporte entre alumnos y equipo de Trip Conecta.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary-100 flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-7 h-7 text-secondary-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Clases en Vivo</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Todos los viernes sesión en vivo para resolver dudas, hacer networking y prácticas grupales.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 glass-card rounded-2xl p-8 reveal">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 text-gray-900">Grupos reducidos para mejor atención</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Limitamos el número de alumnos para garantizar que cada participante reciba atención personalizada 
+                            durante las clases en vivo y en el grupo de WhatsApp. Por eso los cupos se agotan rápido.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan de Estudios Detallado -->
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary-600 text-sm font-bold uppercase tracking-widest">12 Semanas de Formación</span>
+                <h2 class="text-3xl md:text-5xl font-black mt-4 mb-6 text-gray-900">Plan de Estudios Completo</h2>
+                <p class="text-gray-600">Currículo diseñado para que empieces a vender desde el día 1</p>
+            </div>
+
+            <!-- Módulo 1 -->
+            <div class="mb-12 reveal">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-2xl bg-primary-100 border border-primary-200 flex items-center justify-center">
+                        <i data-lucide="plane" class="w-8 h-8 text-primary-600"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-primary-600 uppercase tracking-widest">Módulo 1</div>
+                        <h3 class="text-2xl font-bold text-gray-900">Amadeus - Dominio Técnico</h3>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="module-week">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-primary-600 text-sm">Semana 1</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Introducción al GDS y Perfil del Pasajero (PNR)</h4>
+                        <p class="text-sm text-gray-600">Qué es un Sistema de Distribución Global y por qué Amadeus domina el mercado. Creación y gestión de perfiles de clientes.</p>
+                    </div>
+
+                    <div class="module-week">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-primary-600 text-sm">Semana 2</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Aéreo: Consultas, Cotización y Pricing</h4>
+                        <p class="text-sm text-gray-600">Ver disponibilidad, horarios y tarifas. Cotización de itinerarios simples o multidestino y lectura de reglas tarifarias.</p>
+                    </div>
+
+                    <div class="module-week">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-primary-600 text-sm">Semana 3</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Aéreo: Reservas y Emisión</h4>
+                        <p class="text-sm text-gray-600">Creación de reservas, emisión de boletos, re-emisiones, reembolsos y gestión de colas.</p>
+                    </div>
+
+                    <div class="module-week">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-primary-600 text-sm">Semana 4</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Servicios Adicionales y Examen Final Amadeus</h4>
+                        <p class="text-sm text-gray-600">Cotización y reserva de hoteles, autos, etc. Preparación y examen para obtener la Certificación de Amadeus.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo 2 -->
+            <div class="mb-12 reveal">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-2xl bg-secondary-100 border border-secondary-200 flex items-center justify-center">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-secondary-600"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-secondary-600 uppercase tracking-widest">Módulo 2</div>
+                        <h3 class="text-2xl font-bold text-gray-900">El Oficio Comercial - Ventas Digitales</h3>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="module-week" style="border-left-color: #06b6d4;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-secondary-600 text-sm">Semana 5</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Psicología del Cliente y Prospección</h4>
+                        <p class="text-sm text-gray-600">Vender "soluciones" y no destinos. Tomar control de la conversación y diagnosticar presupuestos reales.</p>
+                    </div>
+
+                    <div class="module-week" style="border-left-color: #06b6d4;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-secondary-600 text-sm">Semana 6</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Venta Consultiva y Propuestas High-Ticket</h4>
+                        <p class="text-sm text-gray-600">Justificar precios y vender experiencias. Manejo avanzado de objeciones.</p>
+                    </div>
+
+                    <div class="module-week" style="border-left-color: #06b6d4;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-secondary-600 text-sm">Semana 7</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Técnicas de Cierre y Fidelización</h4>
+                        <p class="text-sm text-gray-600">Cerrar ventas profesionalmente. Estrategias de post-venta para clientes recurrentes y referidos.</p>
+                    </div>
+
+                    <div class="module-week" style="border-left-color: #06b6d4;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-secondary-600 text-sm">Semana 8</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Clínica de Cierre - Examen Final</h4>
+                        <p class="text-sm text-gray-600">Roleplay práctico: simulaciones de venta bajo presión contra los fundadores. Evaluación final del módulo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo 3 -->
+            <div class="reveal">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 border border-purple-200 flex items-center justify-center">
+                        <i data-lucide="target" class="w-8 h-8 text-purple-600"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-purple-600 uppercase tracking-widest">Módulo 3</div>
+                        <h3 class="text-2xl font-bold text-gray-900">La Captación - Marketing y Leads</h3>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="module-week" style="border-left-color: #9333ea;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-purple-600 text-sm">Semana 9</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Nicho, Marca Personal y Marketing de Contenidos</h4>
+                        <p class="text-sm text-gray-600">Dejar de competir por precio. Generar autoridad educando e inspirando en redes sociales.</p>
+                    </div>
+
+                    <div class="module-week" style="border-left-color: #9333ea;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-purple-600 text-sm">Semana 10</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Embudo de Captación y Email Marketing</h4>
+                        <p class="text-sm text-gray-600">Landing pages e imanes de leads. Nutrición de leads mediante email marketing automatizado.</p>
+                    </div>
+
+                    <div class="module-week" style="border-left-color: #9333ea;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-purple-600 text-sm">Semana 11</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">CRM e Integración Marketing-Ventas</h4>
+                        <p class="text-sm text-gray-600">Cómo llega un contacto desde un anuncio al vendedor. Transferencia profesional de leads al equipo de ventas.</p>
+                    </div>
+
+                    <div class="module-week" style="border-left-color: #9333ea;">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-bold text-purple-600 text-sm">Semana 12</span>
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <h4 class="font-bold mb-1 text-gray-900">Proyecto Final: Tu Embudo Completo</h4>
+                        <p class="text-sm text-gray-600">Diseña y presenta tu propio embudo de captación completo. Evaluación final y entrega de certificados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <div class="promo-badge mb-6">
+                <i data-lucide="timer" class="w-4 h-4"></i>
+                VÁLIDO HASTA EL 31 DE MARZO
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-black mb-6 text-gray-900">¿Listo para transformar tu futuro?</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                Únete a más de 500 agentes certificados que ya están generando ingresos con nuestra metodología probada.
+                <br><br>
+                <span class="text-red-500 font-bold">¡Solo quedan <span id="spotsLeft2">12</span> cupos de 20 a precio promocional!</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
+                <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" class="btn-primary urgency-pulse">
+                    <span>Pagar Ahora $12.700</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" class="btn-secondary">
+                    <span>Reservar con $6.350</span>
+                    <i data-lucide="bookmark" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <div class="mt-8 flex justify-center gap-6 text-gray-400">
+                <div class="flex items-center gap-2 text-xs font-medium">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Pago Seguro MP</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-medium">
+                    <i data-lucide="refresh-ccw" class="w-4 h-4"></i>
+                    <span>Garantía 7 días</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-medium">
+                    <i data-lucide="credit-card" class="w-4 h-4"></i>
+                    <span>12 cuotas sin recargo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="logo-container">
+                    <img src="trip conecta (2).png" 
+                         alt="Trip Conecta" class="logo-img">
+                </div>
+                
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="https://wa.me/59896343581" class="hover:text-primary-600 transition-colors">Contacto</a>
+                    <a href="#" class="hover:text-primary-600 transition-colors">Términos</a>
+                    <a href="#" class="hover:text-primary-600 transition-colors">Privacidad</a>
+                </div>
+
+                <p class="text-xs text-gray-400">© 2026 Trip Conecta SAS. Montevideo, Uruguay.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky WhatsApp Help -->
+    <div class="sticky-help">
+        <a href="https://wa.me/59896343581" target="_blank" class="btn-whatsapp shadow-2xl">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>¿Tienes alguna duda? Escríbenos</span>
+        </a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        function reveal() {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Contador de cupos (simulado para efecto de urgencia)
+        let spots = 12;
+        const spotsElements = [document.getElementById('spotsLeft'), document.getElementById('spotsLeft2')];
+        
+        // Reducir cupos cada cierto tiempo para crear urgencia
+        setInterval(() => {
+            if (spots > 2 && Math.random() > 0.6) {
+                spots--;
+                spotsElements.forEach(el => {
+                    if (el) {
+                        el.textContent = spots;
+                        el.classList.add('text-red-500');
+                        setTimeout(() => el.classList.remove('text-red-500'), 500);
+                    }
+                });
+            }
+        }, 12000); // Cada 12 segundos posible reducción
+    </script>
+</body>
+</html>
