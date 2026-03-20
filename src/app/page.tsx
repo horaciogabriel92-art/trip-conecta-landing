@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen text-slate-50 relative overflow-hidden">
+    <main className="min-h-screen text-gray-900 relative overflow-hidden">
       {/* Hero Section */}
       <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -23,24 +23,25 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center"
           >
-            <div className="bg-white/10 p-4 rounded-2xl border border-white/10 mb-8">
+            {/* Logo más grande */}
+            <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm mb-8">
               <img 
-                src="/assets/trip-conecta-1.png" 
+                src="/assets/logo-trip-conecta.png" 
                 alt="Trip Conecta" 
-                className="h-12 md:h-16 w-auto object-contain"
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </div>
             
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-wider mb-8">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-sm font-bold uppercase tracking-wider mb-8">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               Desde 2006 en Uruguay
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-6 max-w-5xl mx-auto">
-              Consultora especializada en el <span className="text-gradient">desarrollo de agencias de viajes</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6 max-w-4xl mx-auto text-gray-900">
+              Comunidad consultora para <span className="text-gradient">agentes y agencias de viajes</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
               Transformamos el conocimiento técnico en resultados comerciales reales.
             </p>
 
@@ -58,32 +59,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-r from-emerald-50 to-cyan-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">20</div>
+              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">Años de experiencia</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">500+</div>
+              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">Agentes certificados</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">50+</div>
+              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">Agencias asesoradas</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">+15M</div>
+              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">USD en ventas</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="servicios" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-400 text-sm font-bold uppercase tracking-widest">Nuestros Servicios</span>
-            <h2 className="text-3xl md:text-5xl font-black mt-4 mb-6">Soluciones integrales para el sector</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">Combinamos tecnología, formación y operativa para potenciar tu agencia</p>
+            <span className="text-emerald-600 text-sm font-bold uppercase tracking-widest">Nuestros Servicios</span>
+            <h2 className="text-3xl md:text-5xl font-black mt-4 mb-6 text-gray-900">Soluciones integrales para el sector</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Combinamos tecnología, formación y operativa para potenciar tu agencia</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <ServiceCard 
-              icon={<GraduationCap className="w-8 h-8 text-blue-400" />}
+              icon={<GraduationCap className="w-8 h-8 text-emerald-600" />}
               title="Certificación Profesional"
               description="Formación completa en Amadeus, ventas digitales y marketing turístico. Certificación oficial y acceso a inventario mayorista."
               features={["Certificación Amadeus oficial", "Ventas por redes y WhatsApp", "Acceso a inventario exclusivo"]}
               link="/curso"
             />
             <ServiceCard 
-              icon={<Briefcase className="w-8 h-8 text-purple-400" />}
+              icon={<Briefcase className="w-8 h-8 text-cyan-600" />}
               title="Consultoría para Agencias"
               description="Asesoría estratégica para agencias establecidas. Optimización de procesos, tecnología y desarrollo comercial."
               features={["Diagnóstico operativo completo", "Implementación de tecnología", "Capacitación de equipos"]}
               link="https://wa.me/59896343581"
             />
             <ServiceCard 
-              icon={<Plane className="w-8 h-8 text-green-400" />}
+              icon={<Plane className="w-8 h-8 text-purple-600" />}
               title="Operación de Viajes"
               description="Respaldo operativo para agentes independientes. Emisiones, cambios, cancelaciones y soporte 24/7."
               features={["Emisiones y reemisiones", "Gestión de emergencias", "Comisiones garantizadas"]}
@@ -96,13 +121,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-card rounded-[40px] p-8 md:p-16 border border-blue-500/20">
-            <div className="w-20 h-20 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-6">
-              <Rocket className="w-10 h-10 text-blue-400" />
+          <div className="glass-card rounded-[40px] p-8 md:p-16 border border-emerald-200 bg-gradient-to-br from-emerald-50/50 to-cyan-50/50">
+            <div className="w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6">
+              <Rocket className="w-10 h-10 text-emerald-600" />
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-black mb-6">¿Listo para potenciar tu agencia?</h2>
-            <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-black mb-6 text-gray-900">¿Listo para potenciar tu agencia?</h2>
+            <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
               Ya sea que busques certificarte como agente profesional o necesites asesoría 
               estratégica para tu agencia establecida, tenemos la solución.
             </p>
@@ -118,7 +143,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-6 opacity-50">
+            <div className="mt-8 flex flex-wrap justify-center gap-6 text-gray-500">
               <div className="flex items-center gap-2 text-xs font-medium">
                 <ShieldCheck className="w-4 h-4" />
                 <span>SAS Registrada</span>
@@ -133,18 +158,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-12 bg-slate-950">
+      <footer className="border-t border-gray-200 py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="bg-white/10 px-4 py-2 rounded-xl border border-white/10">
+          <div className="bg-white p-3 rounded-xl border border-gray-200">
             <img 
-              src="/assets/trip-conecta-1.png" 
+              src="/assets/logo-trip-conecta.png" 
               alt="Trip Conecta" 
-              className="h-8 md:h-10 w-auto object-contain"
+              className="h-12 md:h-16 w-auto object-contain"
             />
           </div>
           <div className="text-center md:text-right">
-            <p className="text-sm text-slate-400">Trip Conecta SAS</p>
-            <p className="text-xs text-slate-600">Montevideo, Uruguay</p>
+            <p className="text-sm text-gray-600">Trip Conecta SAS</p>
+            <p className="text-xs text-gray-400">Montevideo, Uruguay</p>
           </div>
         </div>
       </footer>
@@ -160,21 +185,21 @@ export default function Home() {
 
 function ServiceCard({ icon, title, description, features, link }: { icon: any, title: string, description: string, features: string[], link: string }) {
   return (
-    <div className="glass-card rounded-3xl p-8 hover:-translate-y-2 transition-transform">
-      <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
+    <div className="glass-card rounded-3xl p-8 hover:-translate-y-2 transition-transform bg-white">
+      <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 border border-gray-100">
         {icon}
       </div>
-      <h3 className="text-2xl font-bold mb-4">{title}</h3>
-      <p className="text-slate-400 mb-6 leading-relaxed text-sm">{description}</p>
-      <ul className="space-y-2 text-sm text-slate-300 mb-8">
+      <h3 className="text-2xl font-bold mb-4 text-gray-900">{title}</h3>
+      <p className="text-gray-600 mb-6 leading-relaxed text-sm">{description}</p>
+      <ul className="space-y-2 text-sm text-gray-700 mb-8">
         {features.map((f, i) => (
           <li key={i} className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-blue-500" />
+            <Check className="w-4 h-4 text-emerald-500" />
             {f}
           </li>
         ))}
       </ul>
-      <Link href={link} className="text-blue-400 font-bold text-sm hover:text-blue-300 transition-colors flex items-center gap-2">
+      <Link href={link} className="text-emerald-600 font-bold text-sm hover:text-emerald-700 transition-colors flex items-center gap-2">
         Saber más <ArrowRight className="w-4 h-4" />
       </Link>
     </div>
