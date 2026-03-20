@@ -28,7 +28,7 @@ export default function Home() {
               <img 
                 src="/assets/logo-trip-conecta.png" 
                 alt="Trip Conecta" 
-                className="h-24 md:h-32 w-auto object-contain"
+                className="h-28 w-auto object-contain"
               />
             </div>
 
@@ -135,7 +135,7 @@ export default function Home() {
             <img 
               src="/assets/logo-trip-conecta.png" 
               alt="Trip Conecta" 
-              className="h-20 md:h-24 w-auto object-contain"
+              className="h-24 w-auto object-contain"
             />
           </div>
           <div className="text-center md:text-right">

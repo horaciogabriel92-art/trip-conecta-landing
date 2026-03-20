@@ -43,7 +43,7 @@ export default function CursoLanding() {
       <nav className="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
           <Link href="/" className="flex items-center">
-            <img src="/assets/logo-trip-conecta.png" alt="Trip Conecta" className="h-14 md:h-16 w-auto" />
+            <img src="/assets/logo-trip-conecta.png" alt="Trip Conecta" className="h-20 w-auto" />
           </Link>
           <Link href="/pagar" className="btn-primary px-6 py-3 text-sm flex items-center gap-2">
             <span>Quiero Inscribirme</span>
@@ -498,7 +498,7 @@ export default function CursoLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6">
             <div>
-              <img src="/assets/logo-trip-conecta.png" alt="Trip Conecta" className="h-20 md:h-24 w-auto" />
+              <img src="/assets/logo-trip-conecta.png" alt="Trip Conecta" className="h-24 w-auto" />
             </div>
             <p className="text-sm text-gray-500">© 2026 Trip Conecta SAS - Montevideo, Uruguay</p>
           </div>
