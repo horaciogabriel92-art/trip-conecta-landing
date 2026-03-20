@@ -493,6 +493,20 @@ export default function CursoLanding() {
         )}
       </AnimatePresence>
 
+      {/* Disclaimer Legal */}
+      <section className="py-12 bg-gray-100 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-sm text-gray-600 leading-relaxed space-y-4">
+            <p>
+              <strong>Trip Conecta</strong> es una consultora estratégica especializada en la industria de viajes. Nuestros socios fundadores cuentan, individualmente, con más de 15 años de experiencia activa en agencias de viaje de primer nivel, desempeñando roles clave en Operativa GDS (Amadeus), Gestión Comercial y Marketing Digital.
+            </p>
+            <p className="text-xs text-gray-500">
+              <strong>Aviso Legal:</strong> El programa «Academia Trip Conecta» es una formación profesional independiente. No constituye una oferta de empleo ni garantiza la obtención de un puesto de trabajo. Las salidas laborales mencionadas (empleo en agencias, postulación como comisionista o aplicación a nuestra red de socios) son oportunidades potenciales para las cuales el alumno adquiere calificación, pero el éxito y la selección final dependen exclusivamente del desempeño del alumno y de los procesos de selección de las empresas o de Trip Conecta.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer - Logo más grande */}
       <footer className="border-t border-gray-200 py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
