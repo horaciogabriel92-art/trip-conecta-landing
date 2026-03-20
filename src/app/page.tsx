@@ -54,30 +54,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-emerald-50 to-cyan-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">20</div>
-              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">Años de experiencia</p>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">500+</div>
-              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">Agentes certificados</p>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">50+</div>
-              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">Agencias asesoradas</p>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-black text-gradient mb-2">+15M</div>
-              <p className="text-sm text-gray-600 font-medium uppercase tracking-wider">USD en ventas</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section id="servicios" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
