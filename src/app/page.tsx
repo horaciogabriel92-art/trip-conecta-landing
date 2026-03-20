@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className="min-h-screen text-gray-900 relative overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40">
+      <section className="relative pt-16 pb-20 lg:pt-24 lg:pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -23,18 +23,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center"
           >
-            {/* Logo más grande */}
-            <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm mb-8">
+            {/* Logo más grande sin bordes restrictivos */}
+            <div className="mb-8">
               <img 
                 src="/assets/logo-trip-conecta.png" 
                 alt="Trip Conecta" 
-                className="h-16 md:h-20 w-auto object-contain"
+                className="h-24 md:h-32 w-auto object-contain"
               />
-            </div>
-            
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-sm font-bold uppercase tracking-wider mb-8">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              Desde 2006 en Uruguay
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6 max-w-4xl mx-auto text-gray-900">
@@ -157,14 +152,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - Logo más grande */}
       <footer className="border-t border-gray-200 py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="bg-white p-3 rounded-xl border border-gray-200">
+          <div>
             <img 
               src="/assets/logo-trip-conecta.png" 
               alt="Trip Conecta" 
-              className="h-12 md:h-16 w-auto object-contain"
+              className="h-20 md:h-24 w-auto object-contain"
             />
           </div>
           <div className="text-center md:text-right">
