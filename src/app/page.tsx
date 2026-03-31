@@ -14,6 +14,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen text-gray-900 relative overflow-hidden">
+      <link rel="preload" as="image" href="/assets/logo-trip-conecta.png" />
       {/* Hero Section */}
       <section className="relative pt-16 pb-20 lg:pt-24 lg:pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
