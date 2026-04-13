@@ -26,10 +26,10 @@ export default function PagarPage() {
             <img src="/assets/logo-trip-conecta.png" alt="Trip Conecta" className="h-20 w-auto" />
           </Link>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500 hidden sm:inline">¡Promoción especial!</span>
+            <span className="text-sm text-gray-500 hidden sm:inline">Inscripciones abiertas - 5ta Gen.</span>
             <div className="bg-red-100 border border-red-200 rounded-xl px-4 py-2 flex items-center gap-2">
               <Clock className="w-4 h-4 text-red-500" />
-              <span className="text-xs font-bold text-red-600 uppercase">Hasta el 31 de marzo</span>
+              <span className="text-xs font-bold text-red-600 uppercase">Inscripciones abiertas</span>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function PagarPage() {
               className="promo-badge mb-8"
             >
               <Flame className="w-4 h-4" />
-              PROMO ESPECIAL - SOLO 20 CUPOS
+              INSCRIPCIONES ABIERTAS - 5TA GENERACIÓN
             </motion.div>
             
             <motion.h1 
@@ -54,7 +54,7 @@ export default function PagarPage() {
               className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900"
             >
               Asegura tu lugar en el <br />
-              <span className="text-gradient">Grupo 06 de Abril</span>
+              <span className="text-gradient">5ta Generación - 20 de Junio</span>
             </motion.h1>
             
             <motion.p 
@@ -63,8 +63,7 @@ export default function PagarPage() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8"
             >
-              Aprovecha el precio promocional válido solo hasta el <strong className="text-gray-900">31 de marzo</strong>. 
-              Después vuelve al precio regular.
+              Las inscripciones están abiertas para la <strong className="text-gray-900">5ta generación</strong> de agentes de viajes de la Academia Trip Conecta.
             </motion.p>
 
             <motion.div 
@@ -182,18 +181,18 @@ export default function PagarPage() {
                   </div>
                   <div className="text-right">
                     <div className="text-gray-400 line-through text-lg font-bold">$22.000</div>
-                    <div className="text-4xl md:text-5xl font-black text-gradient">$12.700</div>
+                    <div className="text-4xl md:text-5xl font-black text-gradient">$13.700</div>
                     <div className="text-sm text-gray-500 mt-1">Pesos Uruguayos ($UYU)</div>
                   </div>
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Pago Único Promocional</h3>
-                <p className="text-gray-600 mb-6">Ahorra $9.300 pagando ahora. Acceso inmediato a todos los materiales. Válido solo para los primeros 20 inscriptos.</p>
+                <p className="text-gray-600 mb-6">Pago único con descuento por pago en contado o transferencia. Acceso inmediato a todos los materiales. Válido solo para los primeros 20 inscriptos.</p>
                 
                 <ul className="space-y-3 mb-8 text-sm text-gray-700">
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                    <span><strong className="text-gray-900">42% de descuento</strong> por tiempo limitado</span>
+                    <span><strong className="text-gray-900">Descuento</strong> en pago contado o transferencia</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
@@ -214,7 +213,7 @@ export default function PagarPage() {
                 </ul>
 
                 <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" className="btn-primary w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2 urgency-pulse">
-                  <span>Pagar $12.700 Ahora</span>
+                  <span>Pagar $13.700 Ahora</span>
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 
@@ -234,13 +233,13 @@ export default function PagarPage() {
                   </div>
                   <div className="text-right">
                     <div className="text-gray-400 line-through text-lg font-bold">$11.000</div>
-                    <div className="text-3xl font-black text-gradient">$6.350</div>
+                    <div className="text-3xl font-black text-gradient">$6.850</div>
                     <p className="text-xs text-gray-500">50% para reservar</p>
                   </div>
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Reservar mi Cupo</h3>
-                <p className="text-gray-600 mb-6">Separa tu lugar pagando la mitad del precio promocional. El resto ($6.350) lo pagas antes del 06 de abril.</p>
+                <p className="text-gray-600 mb-6">Separa tu lugar pagando la mitad del precio. El resto ($6.850) lo pagas antes del 20 de junio.</p>
                 
                 <ul className="space-y-3 mb-8 text-sm text-gray-700">
                   <li className="flex items-center gap-3">
@@ -249,7 +248,7 @@ export default function PagarPage() {
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-cyan-500 flex-shrink-0" />
-                    <span>El saldo lo pagas hasta el 06/04</span>
+                    <span>El saldo lo pagas hasta el 20/06</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-cyan-500 flex-shrink-0" />
@@ -262,12 +261,12 @@ export default function PagarPage() {
                 </ul>
 
                 <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" className="btn-secondary w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2">
-                  <span>Reservar con $6.350</span>
+                  <span>Reservar con $6.850</span>
                   <Bookmark className="w-5 h-5" />
                 </a>
                 
                 <p className="text-center text-xs text-gray-500 mt-4">
-                  Saldo restante: $6.350 antes del 06/04/2026
+                  Saldo restante: $6.850 antes del 20/06/2026
                 </p>
               </div>
             </div>
@@ -442,7 +441,7 @@ export default function PagarPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="promo-badge mb-6">
             <Clock className="w-4 h-4" />
-            VÁLIDO HASTA EL 31 DE MARZO
+            VÁLIDO - 5TA GENERACIÓN 20 DE JUNIO
           </div>
           
           <h2 className="text-3xl md:text-4xl font-black mb-6 text-gray-900">¿Listo para transformar tu futuro?</h2>
@@ -454,11 +453,11 @@ export default function PagarPage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
             <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" className="btn-primary py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2 urgency-pulse">
-              <span>Pagar Ahora $12.700</span>
+              <span>Pagar Ahora $13.700</span>
               <ArrowRight className="w-5 h-5" />
             </a>
             <a href="https://mercadopago.com.uy/payment-link/v1/redirect?link-id=f14a4900-d778-4c19-b641-8c6de7cd1f0b&source=link" target="_blank" className="btn-secondary py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-2">
-              <span>Reservar con $6.350</span>
+              <span>Reservar con $6.850</span>
               <Bookmark className="w-5 h-5" />
             </a>
           </div>
