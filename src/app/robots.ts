@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/pagar/', '/_next/'],
+      disallow: ['/api/', '/pagar/'],
     },
     sitemap: 'https://tripconecta.com/sitemap.xml',
   }
