@@ -128,6 +128,22 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* Sobre Nosotros */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="glass-card rounded-[40px] p-8 md:p-12 border border-gray-200 bg-white">
+            <h2 className="text-2xl md:text-4xl font-black mb-4 text-gray-900">¿Querés saber más sobre nosotros?</h2>
+            <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+              Conocé en detalle nuestro modelo de negocio, el respaldo AUDAVI y cómo trabajamos con agencias y agentes de viajes.
+            </p>
+            <Link href="/que-es-trip-conecta" className="btn-primary text-lg px-8 py-4 inline-flex items-center justify-center gap-2">
+              <span>Descubrí qué es Trip Conecta</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Footer - Logo más grande */}
       <footer className="border-t border-gray-200 py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
