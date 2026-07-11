@@ -1,15 +1,46 @@
 "use client";
 
-import { ArrowRight, MessageCircle, Check, GraduationCap, Briefcase, Plane, Rocket, ShieldCheck, MapPin } from "lucide-react";
+import { ArrowRight, MessageCircle, Check, GraduationCap, Briefcase, Plane, Rocket, ShieldCheck, MapPin, CreditCard, Users, FileText, Package, Globe, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+
+interface Plan {
+  slug: string;
+  nombre: string;
+  max_users: number | null;
+  max_cotizaciones_por_mes: number | null;
+  max_paquetes: number | null;
+  permite_dominio_propio: boolean;
+  precio_mensual_usd: number;
+  precio_usuario_extra_usd: number;
+}
+
 export default function HomeClient() {
   const [isVisible, setIsVisible] = useState(false);
+  const [plans, setPlans] = useState<Plan[]>([]);
+  const [plansLoading, setPlansLoading] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
+
+    const fetchPlans = async () => {
+      try {
+        const response = await fetch(`${API_URL}/config/plans`);
+        if (response.ok) {
+          const data = await response.json();
+          setPlans(data);
+        }
+      } catch (error) {
+        console.error('Error fetching plans:', error);
+      } finally {
+        setPlansLoading(false);
+      }
+    };
+
+    fetchPlans();
   }, []);
 
   return (
@@ -41,8 +72,8 @@ export default function HomeClient() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/curso" className="btn-primary text-lg">
-                <span>Certificarme como Agente</span>
+              <Link href="#precios" className="btn-primary text-lg">
+                <span>Probar gratis 7 días</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a href="https://wa.me/59896343581" target="_blank" className="btn-secondary text-lg">
@@ -89,6 +120,31 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <section id="precios" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-emerald-600 text-sm font-bold uppercase tracking-widest">Planes</span>
+            <h2 className="text-3xl md:text-5xl font-black mt-4 mb-6 text-gray-900">Elige el plan ideal para tu agencia</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              7 días de prueba gratuita en todos los planes. Sin tarjeta. Cancelá cuando quieras.
+            </p>
+          </div>
+
+          {plansLoading ? (
+            <div className="flex justify-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {plans.map((plan) => (
+                <PricingCard key={plan.slug} plan={plan} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -99,13 +155,12 @@ export default function HomeClient() {
             
             <h2 className="text-3xl md:text-5xl font-black mb-6 text-gray-900">¿Listo para potenciar tu agencia?</h2>
             <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-              Ya sea que busques certificarte como agente profesional o necesites asesoría 
-              estratégica para tu agencia establecida, tenemos la solución.
+              Empezá tu prueba gratuita hoy mismo y descubrí todo lo que Trip Conecta puede hacer por tu negocio.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/curso" className="btn-primary text-lg px-8 py-4">
-                <span>Quiero Certificarme</span>
+              <Link href="#precios" className="btn-primary text-lg px-8 py-4">
+                <span>Probar gratis 7 días</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a href="https://wa.me/59896343581" target="_blank" className="btn-secondary text-lg px-8 py-4">
@@ -188,6 +243,67 @@ function ServiceCard({ icon, title, description, features, link }: { icon: any, 
       </ul>
       <Link href={link} className="text-emerald-600 font-bold text-sm hover:text-emerald-700 transition-colors flex items-center gap-2">
         Saber más <ArrowRight className="w-4 h-4" />
+      </Link>
+    </div>
+  );
+}
+
+function PricingCard({ plan }: { plan: Plan }) {
+  const isFree = plan.precio_mensual_usd === 0;
+
+  const features = [
+    {
+      icon: <Users className="w-4 h-4" />,
+      text: `${plan.max_users === null ? 'Usuarios ilimitados' : `${plan.max_users} usuario${plan.max_users === 1 ? '' : 's'}`}`
+    },
+    {
+      icon: <FileText className="w-4 h-4" />,
+      text: `${plan.max_cotizaciones_por_mes === null ? 'Cotizaciones ilimitadas' : `${plan.max_cotizaciones_por_mes} cotizaciones/mes`}`
+    },
+    {
+      icon: <Package className="w-4 h-4" />,
+      text: `${plan.max_paquetes === null ? 'Paquetes ilimitados' : `${plan.max_paquetes} paquete${plan.max_paquetes === 1 ? '' : 's'}`}`
+    },
+    {
+      icon: <Globe className="w-4 h-4" />,
+      text: plan.permite_dominio_propio ? 'Dominio propio incluido' : 'Sin dominio propio'
+    }
+  ];
+
+  if (plan.precio_usuario_extra_usd > 0) {
+    features.push({
+      icon: <CreditCard className="w-4 h-4" />,
+      text: `+$${plan.precio_usuario_extra_usd}/mes usuario extra`
+    });
+  }
+
+  return (
+    <div className="glass-card rounded-3xl p-6 bg-white border border-gray-100 flex flex-col hover:-translate-y-1 transition-transform">
+      <div className="mb-4">
+        <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">
+          7 días gratis
+        </span>
+      </div>
+      <h3 className="text-2xl font-bold mb-2 text-gray-900">{plan.nombre}</h3>
+      <div className="mb-6">
+        <span className="text-4xl font-black text-gray-900">
+          {isFree ? 'Gratis' : `$${plan.precio_mensual_usd}`}
+        </span>
+        {!isFree && <span className="text-gray-500">/mes</span>}
+      </div>
+      <ul className="space-y-3 text-sm text-gray-700 mb-8 flex-1">
+        {features.map((feature, i) => (
+          <li key={i} className="flex items-center gap-2">
+            <span className="text-emerald-500">{feature.icon}</span>
+            {feature.text}
+          </li>
+        ))}
+      </ul>
+      <Link
+        href={`/registro?plan=${plan.slug}`}
+        className="w-full btn-primary text-center justify-center"
+      >
+        Probar gratis 7 días
       </Link>
     </div>
   );
