@@ -2,35 +2,16 @@
 
 import { ArrowRight, MessageCircle, CheckCircle, Play, Phone, Clock, Bookmark, AlertCircle, TrendingUp, Briefcase, ShoppingBag, Globe, Calculator, Smartphone, Target, ShieldCheck, MapPin, Award, Plane, Check, ChevronDown, CreditCard, Calendar, Users, Video, HelpCircle } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CursoClient() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  useEffect(() => {
-    const targetDate = new Date("June 20, 2026 00:00:00").getTime();
-    
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const faqs = [
     { q: "¿Necesito experiencia previa en turismo?", a: "No. El curso está diseñado desde cero para personas sin experiencia. Nuestra metodología paso a paso te lleva desde lo básico hasta la operativa profesional completa." },
-    { q: "¿Cuándo empieza exactamente el curso?", a: "La 5ta generación de la Academia Trip Conecta inicia el 20 de Junio de 2026. Al inscribirte recibes acceso inmediato a materiales preparatorios y el 20 de junio abrimos el acceso completo al campus virtual." },
+    { q: "¿Cuándo empieza exactamente el curso?", a: "El curso es 100% online y podés comenzar cuando quieras. Al inscribirte recibís acceso inmediato a todo el contenido, las clases grabadas y el campus virtual para avanzar a tu propio ritmo." },
     { q: "¿Cómo recibo la certificación Amadeus?", a: "Al finalizar el módulo técnico y aprobar el examen online, recibes tu certificación oficial Amadeus válida internacionalmente." },
     { q: "¿Tengo que vender los viajes obligatoriamente?", a: "No. Puedes usar la certificación para buscar empleo en agencias tradicionales. Nosotros solo te damos la opción de vender nuestro inventario si quieres trabajar independiente." },
     { q: "¿Qué pasa si no puedo asistir a las clases?", a: "Todas las clases quedan grabadas y disponibles 24/7 en nuestra plataforma. Puedes estudiar a tu propio ritmo." },
@@ -77,14 +58,9 @@ export default function CursoClient() {
 
               {/* Countdown */}
               <div className="glass-card p-6 rounded-2xl inline-block bg-white">
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">5ta Generación - inicia en:</p>
-                <div className="flex gap-4">
-                  <CountdownUnit value={timeLeft.days} label="Días" />
-                  <CountdownUnit value={timeLeft.hours} label="Horas" />
-                  <CountdownUnit value={timeLeft.minutes} label="Mins" />
-                  <CountdownUnit value={timeLeft.seconds} label="Segs" />
-                </div>
-                <p className="text-sm font-bold text-emerald-600 mt-4">20 de Junio de 2026</p>
+                <p className="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-3">100% Online</p>
+                <p className="text-3xl font-black text-gray-900">Comenzá cuando quieras</p>
+                <p className="text-sm text-gray-500 mt-2">Acceso inmediato al campus virtual</p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -364,7 +340,7 @@ export default function CursoClient() {
           <div className="glass-card rounded-[40px] p-8 md:p-16 text-center border border-emerald-200 bg-white">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 border border-red-200 text-red-600 text-xs font-bold uppercase tracking-wider mb-6 animate-pulse">
               <AlertCircle className="w-4 h-4" />
-              Cupos Limitados - 5ta Generación 20 Junio
+              Cupos Limitados - Comenzá cuando quieras
             </div>
 
             <h2 className="text-3xl md:text-5xl font-black mb-6 text-gray-900">Inversión en tu Futuro</h2>
@@ -372,7 +348,7 @@ export default function CursoClient() {
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
               <div className="text-center">
                 <p className="text-sm text-gray-500 mb-2">Inicio</p>
-                <p className="text-2xl font-black text-gray-900">20 Junio 2026</p>
+                <p className="text-2xl font-black text-gray-900">Cuando quieras</p>
               </div>
               <div className="hidden md:block w-px h-12 bg-gray-200"></div>
               <div className="text-center">
@@ -562,15 +538,6 @@ function ModuleCard({ icon, number, title, description, items, color }: any) {
           ))}
         </ul>
       </div>
-    </div>
-  );
-}
-
-function CountdownUnit({ value, label }: { value: number, label: string }) {
-  return (
-    <div className="bg-gray-100 border border-gray-200 rounded-xl p-3 min-w-[70px] text-center">
-      <div className="text-2xl font-black text-gray-900">{value < 10 ? `0${value}` : value}</div>
-      <div className="text-[10px] text-gray-500 uppercase font-bold">{label}</div>
     </div>
   );
 }

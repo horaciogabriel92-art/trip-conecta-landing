@@ -53,8 +53,8 @@ export default function PagarPage() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900"
             >
-              Asegura tu lugar en el <br />
-              <span className="text-gradient">5ta Generación - 20 de Junio</span>
+              Asegura tu lugar y <br />
+              <span className="text-gradient">Comenzá cuando quieras</span>
             </motion.h1>
             
             <motion.p 
@@ -239,7 +239,7 @@ export default function PagarPage() {
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Reservar mi Cupo</h3>
-                <p className="text-gray-600 mb-6">Separa tu lugar pagando la mitad del precio. El resto ($6.850) lo pagas antes del 20 de junio.</p>
+                <p className="text-gray-600 mb-6">Separa tu lugar pagando la mitad del precio. El resto ($6.850) lo pagas cuando actives tu acceso completo.</p>
                 
                 <ul className="space-y-3 mb-8 text-sm text-gray-700">
                   <li className="flex items-center gap-3">
@@ -248,7 +248,7 @@ export default function PagarPage() {
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-cyan-500 flex-shrink-0" />
-                    <span>El saldo lo pagas hasta el 20/06</span>
+                    <span>El saldo lo pagas al activar tu acceso</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-cyan-500 flex-shrink-0" />
@@ -266,7 +266,7 @@ export default function PagarPage() {
                 </a>
                 
                 <p className="text-center text-xs text-gray-500 mt-4">
-                  Saldo restante: $6.850 antes del 20/06/2026
+                  Saldo restante: $6.850 al activar tu acceso completo
                 </p>
               </div>
             </div>
@@ -441,7 +441,7 @@ export default function PagarPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="promo-badge mb-6">
             <Clock className="w-4 h-4" />
-            VÁLIDO - 5TA GENERACIÓN 20 DE JUNIO
+            VÁLIDO - COMENZÁ CUANDO QUIERAS
           </div>
           
           <h2 className="text-3xl md:text-4xl font-black mb-6 text-gray-900">¿Listo para transformar tu futuro?</h2>
