@@ -16,6 +16,11 @@ interface FormData {
   confirmPassword: string;
   nombre: string;
   apellido: string;
+  tipo: "freelance" | "agencia" | "";
+  vendedores: string;
+  pais: string;
+  tipo_viajes: string;
+  gds: string;
 }
 
 function RegisterForm() {
@@ -35,6 +40,11 @@ function RegisterForm() {
     confirmPassword: "",
     nombre: "",
     apellido: "",
+    tipo: "",
+    vendedores: "",
+    pais: "",
+    tipo_viajes: "",
+    gds: "",
   });
 
   useEffect(() => {
@@ -59,8 +69,12 @@ function RegisterForm() {
       setError("El nombre de la agencia debe tener al menos 2 caracteres");
       return false;
     }
-    if (!/^[a-z0-9-]+$/.test(formData.slug)) {
-      setError("El slug solo puede contener letras minúsculas, números y guiones");
+    if (!formData.tipo) {
+      setError("Seleccioná si sos freelance o agencia");
+      return false;
+    }
+    if (formData.tipo === "agencia" && !formData.vendedores) {
+      setError("Indicá cuántos vendedores tiene tu agencia");
       return false;
     }
     return true;
@@ -116,6 +130,13 @@ function RegisterForm() {
           nombre: formData.nombre,
           apellido: formData.apellido,
           plan_slug: planSlug,
+          onboarding: {
+            tipo: formData.tipo,
+            vendedores: formData.tipo === "agencia" ? formData.vendedores : null,
+            pais: formData.pais,
+            tipo_viajes: formData.tipo_viajes,
+            gds: formData.gds,
+          },
         }),
       });
 
@@ -207,26 +228,55 @@ function RegisterForm() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Slug de tu agencia
+                    ¿Sos freelance o tenés una agencia?
                   </label>
-                  <div className="flex items-center">
-                    <input
-                      type="text"
-                      value={formData.slug}
-                      onChange={(e) => handleChange("slug", e.target.value.toLowerCase())}
-                      className="flex-1 px-4 py-3 rounded-l-xl border border-r-0 border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
-                      placeholder="viajes-del-sur"
-                      required
-                      pattern="[a-z0-9-]+"
-                    />
-                    <span className="px-4 py-3 rounded-r-xl border border-l-0 border-gray-200 bg-gray-50 text-gray-500 text-sm">
-                      .travel.quotixos.com
-                    </span>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => handleChange("tipo", "freelance")}
+                      className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
+                        formData.tipo === "freelance"
+                          ? "border-emerald-500 bg-emerald-50 text-emerald-700"
+                          : "border-gray-200 text-gray-700 hover:border-emerald-300"
+                      }`}
+                    >
+                      Freelance
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleChange("tipo", "agencia")}
+                      className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
+                        formData.tipo === "agencia"
+                          ? "border-emerald-500 bg-emerald-50 text-emerald-700"
+                          : "border-gray-200 text-gray-700 hover:border-emerald-300"
+                      }`}
+                    >
+                      Agencia
+                    </button>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Solo letras minúsculas, números y guiones.
-                  </p>
                 </div>
+
+                {formData.tipo === "agencia" && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      ¿Cuántos vendedores tenés?
+                    </label>
+                    <select
+                      value={formData.vendedores}
+                      onChange={(e) => handleChange("vendedores", e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all bg-white"
+                    >
+                      <option value="">Seleccionar</option>
+                      <option value="1-2">1 a 2 vendedores</option>
+                      <option value="3-5">3 a 5 vendedores</option>
+                      <option value="6-10">6 a 10 vendedores</option>
+                      <option value="10+">Más de 10</option>
+                    </select>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Ahora creás un usuario. Después agregás los que necesites según tu plan.
+                    </p>
+                  </div>
+                )}
 
                 <button
                   type="button"
@@ -310,6 +360,51 @@ function RegisterForm() {
                     onChange={(e) => handleChange("confirmPassword", e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
                     required
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      País
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.pais}
+                      onChange={(e) => handleChange("pais", e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+                      placeholder="Ej: Uruguay"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      ¿Qué GDS usás?
+                    </label>
+                    <select
+                      value={formData.gds}
+                      onChange={(e) => handleChange("gds", e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all bg-white"
+                    >
+                      <option value="">Seleccionar</option>
+                      <option value="amadeus">Amadeus</option>
+                      <option value="galileo">Galileo</option>
+                      <option value="sabre">Sabre</option>
+                      <option value="otro">Otro</option>
+                      <option value="ninguno">No uso GDS</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    ¿Qué tipo de viajes vendés?
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.tipo_viajes}
+                    onChange={(e) => handleChange("tipo_viajes", e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
+                    placeholder="Ej: Turismo, corporativo, cruceros"
                   />
                 </div>
 
