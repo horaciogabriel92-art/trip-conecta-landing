@@ -2,21 +2,10 @@
 
 import { Check, ArrowRight, Bookmark, Clock, Flame, Shield, CreditCard, Sparkles, Calculator, HelpCircle, MessageCircle, AlertTriangle, Briefcase, TrendingUp, Globe, ChevronDown, Calendar, Users, Video, Award, BookOpen, Percent, ArrowDown, Plane, Smartphone, Target, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function PagarPage() {
-  const [spotsLeft, setSpotsLeft] = useState(12);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (spotsLeft > 3 && Math.random() > 0.7) {
-        setSpotsLeft(prev => prev - 1);
-      }
-    }, 15000);
-    return () => clearInterval(interval);
-  }, [spotsLeft]);
-
   return (
     <main className="min-h-screen text-gray-900 relative pb-20">
       {/* Navbar */}
@@ -26,10 +15,9 @@ export default function PagarPage() {
             <img src="/assets/logo-trip-conecta.png" alt="Trip Conecta" className="h-20 w-auto" />
           </Link>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500 hidden sm:inline">Inscripciones abiertas - 5ta Gen.</span>
-            <div className="bg-red-100 border border-red-200 rounded-xl px-4 py-2 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-red-500" />
-              <span className="text-xs font-bold text-red-600 uppercase">Inscripciones abiertas</span>
+            <div className="bg-emerald-100 border border-emerald-200 rounded-xl px-4 py-2 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-xs font-bold text-emerald-700 uppercase">Inscripciones abiertas</span>
             </div>
           </div>
         </div>
@@ -44,7 +32,7 @@ export default function PagarPage() {
               className="promo-badge mb-8"
             >
               <Flame className="w-4 h-4" />
-              INSCRIPCIONES ABIERTAS - 5TA GENERACIÓN
+              INSCRIPCIONES ABIERTAS
             </motion.div>
             
             <motion.h1 
@@ -54,7 +42,7 @@ export default function PagarPage() {
               className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900"
             >
               Asegura tu lugar en el <br />
-              <span className="text-gradient">5ta Generación - 20 de Junio</span>
+              <span className="text-gradient">Curso de Agente de Viajes</span>
             </motion.h1>
             
             <motion.p 
@@ -63,7 +51,7 @@ export default function PagarPage() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8"
             >
-              Las inscripciones están abiertas para la <strong className="text-gray-900">5ta generación</strong> de agentes de viajes de la Academia Trip Conecta.
+              Inscribite hoy y accedé de inmediato a la formación, la certificación Amadeus y el inventario mayorista exclusivo de Trip Conecta.
             </motion.p>
 
             <motion.div 
@@ -73,7 +61,7 @@ export default function PagarPage() {
               className="bg-red-50 border border-red-200 rounded-2xl p-4 inline-flex items-center gap-3 mb-8"
             >
               <AlertTriangle className="w-5 h-5 text-red-500" />
-              <span className="text-sm font-bold text-red-600">Solo quedan <span className="text-red-700 text-lg">{spotsLeft}</span> cupos de 20 disponibles</span>
+              <span className="text-sm font-bold text-red-600">Cupos limitados por grupo</span>
             </motion.div>
 
             <motion.div 
@@ -186,8 +174,8 @@ export default function PagarPage() {
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">Pago Único Promocional</h3>
-                <p className="text-gray-600 mb-6">Pago único con descuento por pago en contado o transferencia. Acceso inmediato a todos los materiales. Válido solo para los primeros 20 inscriptos.</p>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">Pago Único</h3>
+                <p className="text-gray-600 mb-6">Pago único con acceso inmediato a todos los materiales, certificación Amadeus y acompañamiento del equipo de Trip Conecta.</p>
                 
                 <ul className="space-y-3 mb-8 text-sm text-gray-700">
                   <li className="flex items-center gap-3">
@@ -239,7 +227,7 @@ export default function PagarPage() {
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">Reservar mi Cupo</h3>
-                <p className="text-gray-600 mb-6">Separa tu lugar pagando la mitad del precio. El resto ($6.850) lo pagas antes del 20 de junio.</p>
+                <p className="text-gray-600 mb-6">Separa tu lugar pagando la mitad del precio. El saldo restante lo coordinás directamente con el equipo de Trip Conecta.</p>
                 
                 <ul className="space-y-3 mb-8 text-sm text-gray-700">
                   <li className="flex items-center gap-3">
@@ -248,7 +236,7 @@ export default function PagarPage() {
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-cyan-500 flex-shrink-0" />
-                    <span>El saldo lo pagas hasta el 20/06</span>
+                    <span>El saldo se coordina antes de comenzar</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-cyan-500 flex-shrink-0" />
@@ -266,7 +254,7 @@ export default function PagarPage() {
                 </a>
                 
                 <p className="text-center text-xs text-gray-500 mt-4">
-                  Saldo restante: $6.850 antes del 20/06/2026
+                  Saldo restante: $6.850
                 </p>
               </div>
             </div>
@@ -440,15 +428,15 @@ export default function PagarPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="promo-badge mb-6">
-            <Clock className="w-4 h-4" />
-            VÁLIDO - 5TA GENERACIÓN 20 DE JUNIO
+            <Flame className="w-4 h-4" />
+            INSCRIPCIONES ABIERTAS
           </div>
           
           <h2 className="text-3xl md:text-4xl font-black mb-6 text-gray-900">¿Listo para transformar tu futuro?</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Únete a más de 500 agentes certificados que ya están generando ingresos con nuestra metodología probada.
             <br /><br />
-            <span className="text-red-500 font-bold">¡Solo quedan {spotsLeft} cupos de 20 a precio promocional!</span>
+            <span className="text-red-500 font-bold">Cupos limitados por grupo. Inscribite hoy.</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
